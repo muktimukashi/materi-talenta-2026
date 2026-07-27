@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materi Talenta 2026</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --ink: #101828;
+      --muted: #5f6b7a;
+      --panel: #ffffff;
+      --line: #d8dee8;
+      --blue: #2563eb;
+      --teal: #0f766e;
+      --rose: #be123c;
+      --amber: #b45309;
+      --slate: #263244;
+      --soft-blue: #eaf1ff;
+      --soft-teal: #e7f6f3;
+      --soft-rose: #fff0f3;
+      --soft-amber: #fff5df;
+      --shadow: 0 16px 44px rgba(16, 24, 40, .08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, .10), transparent 36%),
+        linear-gradient(315deg, rgba(15, 118, 110, .10), transparent 34%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(216, 222, 232, .8);
+      background: rgba(245, 247, 251, .86);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      font-weight: 950;
+      box-shadow: 0 10px 26px rgba(37, 99, 235, .24);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .nav a {
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+      background: rgba(16, 24, 40, .06);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 44px;
+      align-items: center;
+      min-height: calc(100vh - 68px);
+      padding: 42px 0 56px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 11px;
+      color: var(--teal);
+      background: rgba(255, 255, 255, .68);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 740px;
+      margin: 18px 0 18px;
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 670px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.45;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font-weight: 850;
+      box-shadow: 0 8px 22px rgba(16, 24, 40, .06);
+    }
+
+    .btn.primary {
+      border-color: var(--blue);
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .hero-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .78);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      font-weight: 850;
+    }
+
+    .status {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 18px;
+    }
+
+    .quick {
+      min-height: 116px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    .quick:hover,
+    .resource:hover {
+      border-color: rgba(37, 99, 235, .45);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(16, 24, 40, .09);
+    }
+
+    .quick,
+    .resource {
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .quick strong {
+      font-size: 19px;
+    }
+
+    .quick span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .resource {
+      display: flex;
+      flex-direction: column;
+      min-height: 238px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      background: var(--panel);
+      box-shadow: 0 8px 22px rgba(16, 24, 40, .04);
+    }
+
+    .resource.web {
+      background: linear-gradient(180deg, var(--soft-blue), #fff 52%);
+    }
+
+    .resource.js {
+      background: linear-gradient(180deg, var(--soft-amber), #fff 52%);
+    }
+
+    .resource.python {
+      background: linear-gradient(180deg, var(--soft-teal), #fff 52%);
+    }
+
+    .resource.game {
+      background: linear-gradient(180deg, var(--soft-rose), #fff 52%);
+    }
+
+    .tag {
+      width: fit-content;
+      border-radius: 8px;
+      padding: 7px 9px;
+      color: #fff;
+      background: var(--slate);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .tag.web { background: var(--blue); }
+    .tag.js { background: var(--amber); }
+    .tag.python { background: var(--teal); }
+    .tag.game { background: var(--rose); }
+
+    .resource h3 {
+      margin: 18px 0 8px;
+      font-size: 23px;
+      line-height: 1.1;
+    }
+
+    .resource p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .links {
+      display: grid;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, .72);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .links a::after {
+      content: ">";
+      color: var(--muted);
+    }
+
+    .list-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .row:last-child {
+      border-bottom: 0;
+    }
+
+    .row strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .row span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .row a {
+      min-width: 132px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
+    footer {
+      padding: 34px 0 44px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 38px;
+      }
+
+      .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .shell {
+        width: min(100% - 22px, 1160px);
+      }
+
+      .quick-grid,
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+      }
+
+      .row a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="#beranda" aria-label="Materi Talenta 2026">
+        <span class="brand-mark">T26</span>
+        <span>Materi Talenta 2026</span>
+      </a>
+      <nav class="nav" aria-label="Menu utama">
+        <a href="#materi">Materi</a>
+        <a href="#praktik">Praktik</a>
+        <a href="#game">Game</a>
+        <a href="#semua-file">Semua File</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="beranda">
+    <section class="shell hero">
+      <div>
+        <div class="eyebrow">Portal kelas coding</div>
+        <h1>Materi Talenta 2026</h1>
+        <p class="lead">Akses cepat untuk roadmap, slide, latihan JavaScript, Python dasar, dan project game yang tersimpan di folder pembelajaran ini.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#materi">Buka Materi</a>
+          <a class="btn" href="7/soalTes.html">Mulai Tes</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Akses cepat">
+        <div class="panel-head">
+          <span>Akses Cepat</span>
+          <span class="status">Siap dibuka</span>
+        </div>
+        <div class="quick-grid">
+          <a class="quick" href="7/roadmap.html">
+            <strong>Level 7</strong>
+            <span>Web Design Responsif</span>
+          </a>
+          <a class="quick" href="Javascript%201/roadmap8.html">
+            <strong>Level 8</strong>
+            <span>JavaScript & Web Application</span>
+          </a>
+          <a class="quick" href="Python%201/roadmap9.html">
+            <strong>Level 9</strong>
+            <span>Python & Game Development</span>
+          </a>
+          <a class="quick" href="Python%20Game/python_adventure_full_annotated.md">
+            <strong>Game</strong>
+            <span>Panduan Python Adventure</span>
+          </a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="materi" class="shell section">
+      <div class="section-head">
+        <h2>Menu Materi</h2>
+        <p>Pilih jalur belajar sesuai sesi kelas. Setiap kartu membuka materi asli di folder masing-masing.</p>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource web">
+          <span class="tag web">Level 7</span>
+          <h3>Web Design Responsif</h3>
+          <p>Roadmap HTML, CSS, semantic layout, form, table, flexbox, grid, dan desain responsif.</p>
+          <div class="links">
+            <a href="7/roadmap.html">Roadmap Level 7</a>
+            <a href="7/soalTes.html">Soal Tes</a>
+          </div>
+        </article>
+
+        <article class="resource js">
+          <span class="tag js">Level 8</span>
+          <h3>JavaScript Dasar</h3>
+          <p>Materi awal JavaScript, latihan HTML, dan roadmap aplikasi web interaktif.</p>
+          <div class="links">
+            <a href="Javascript%201/roadmap8.html">Roadmap Level 8</a>
+            <a href="Javascript%201/1.html">Latihan 1</a>
+            <a href="Javascript%201/2.html">Latihan 2</a>
+          </div>
+        </article>
+
+        <article class="resource js">
+          <span class="tag js">JavaScript</span>
+          <h3>Interaksi Web</h3>
+          <p>Slide dan contoh biodata untuk latihan DOM, input, event, dan script sederhana.</p>
+          <div class="links">
+            <a href="Javascript%202/slide.html">Slide JavaScript 2</a>
+            <a href="Javascript%202/index.html">Contoh Biodata</a>
+            <a href="Javascript%202/biodata.js">File biodata.js</a>
+          </div>
+        </article>
+
+        <article class="resource python">
+          <span class="tag python">Level 9</span>
+          <h3>Python Dasar</h3>
+          <p>Roadmap Python, variabel, input pengguna, struktur kontrol, dan latihan file Python.</p>
+          <div class="links">
+            <a href="Python%201/roadmap9.html">Roadmap Level 9</a>
+            <a href="Python%201/pertemuan9-1.html">Slide Pertemuan 1</a>
+            <a href="Python%201/1.py">Latihan Python 1</a>
+          </div>
+        </article>
+
+        <article class="resource python">
+          <span class="tag python">Python</span>
+          <h3>Variabel & Input</h3>
+          <p>Slide interaktif dan game Python sederhana untuk memperkuat logika pemrograman dasar.</p>
+          <div class="links">
+            <a href="Python%202/slide.html">Slide Python 2</a>
+            <a href="Python%202/game.py">Game Python 2</a>
+          </div>
+        </article>
+
+        <article id="game" class="resource game">
+          <span class="tag game">Project</span>
+          <h3>Python Adventure</h3>
+          <p>Materi project game berbasis Python lengkap dengan source utama dan panduan anotasi.</p>
+          <div class="links">
+            <a href="Python%20Game/main.py">Source main.py</a>
+            <a href="Python%20Game/python_adventure_full_annotated.md">Panduan Lengkap</a>
+            <a href="Python%20Game/python_adventure_per_part.md">Panduan Per Bagian</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="praktik" class="shell section">
+      <div class="section-head">
+        <h2>Latihan Praktik</h2>
+        <p>Daftar cepat untuk file latihan yang sering dibuka saat kelas berlangsung.</p>
+      </div>
+
+      <div class="list-panel">
+        <div class="row">
+          <div>
+            <strong>Latihan JavaScript 1</strong>
+            <span>Empat halaman latihan HTML/JavaScript dasar.</span>
+          </div>
+          <a href="Javascript%201/1.html">Buka</a>
+        </div>
+        <div class="row">
+          <div>
+            <strong>Latihan JavaScript 2</strong>
+            <span>Contoh biodata dengan file JavaScript terpisah.</span>
+          </div>
+          <a href="Javascript%202/index.html">Buka</a>
+        </div>
+        <div class="row">
+          <div>
+            <strong>Latihan Python 1</strong>
+            <span>Kumpulan file Python dasar dari 1.py sampai 5.py.</span>
+          </div>
+          <a href="Python%201/1.py">Buka</a>
+        </div>
+        <div class="row">
+          <div>
+            <strong>Game Python</strong>
+            <span>Source game utama untuk sesi project.</span>
+          </div>
+          <a href="Python%20Game/main.py">Buka</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="semua-file" class="shell section">
+      <div class="section-head">
+        <h2>Semua File Utama</h2>
+        <p>Shortcut tambahan untuk membuka file materi langsung dari browser.</p>
+      </div>
+
+      <div class="list-panel">
+        <div class="row"><div><strong>Roadmap Level 7</strong><span>7/roadmap.html</span></div><a href="7/roadmap.html">Buka</a></div>
+        <div class="row"><div><strong>Soal Tes Level 7</strong><span>7/soalTes.html</span></div><a href="7/soalTes.html">Buka</a></div>
+        <div class="row"><div><strong>Roadmap JavaScript</strong><span>Javascript 1/roadmap8.html</span></div><a href="Javascript%201/roadmap8.html">Buka</a></div>
+        <div class="row"><div><strong>Slide JavaScript</strong><span>Javascript 2/slide.html</span></div><a href="Javascript%202/slide.html">Buka</a></div>
+        <div class="row"><div><strong>Roadmap Python</strong><span>Python 1/roadmap9.html</span></div><a href="Python%201/roadmap9.html">Buka</a></div>
+        <div class="row"><div><strong>Slide Python Input</strong><span>Python 2/slide.html</span></div><a href="Python%202/slide.html">Buka</a></div>
+        <div class="row"><div><strong>Python Adventure</strong><span>Python Game/main.py</span></div><a href="Python%20Game/main.py">Buka</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    Materi Talenta 2026 - portal akses lokal untuk kelas coding.
+  </footer>
+</body>
+</html>

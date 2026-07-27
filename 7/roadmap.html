@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmap Pembelajaran Coding Level 7</title>
+  <style>
+    :root{
+      --bg:#07111f; --panel:#0d1b2f; --ink:#f7fbff; --muted:#b8c7db;
+      --blue:#49a8ff; --cyan:#52ffe0; --yellow:#ffd166; --green:#80ed99; --pink:#ff6b9a;
+      --line:rgba(255,255,255,.16);
+    }
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 20% 0%,#123b67 0,#07111f 34%,#030712 100%);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);overflow:hidden}
+    .deck{width:100vw;height:100vh;position:relative}.slide{position:absolute;inset:0;padding:56px 72px;display:none;overflow:hidden}.slide.active{display:grid;animation:fade .35s ease}.slide::before{content:"";position:absolute;inset:auto -8% -30% auto;width:60vw;height:60vw;background:radial-gradient(circle,rgba(82,255,224,.16),transparent 62%);z-index:-1}.kicker{color:var(--cyan);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:18px}.title{font-size:62px;line-height:1.02;margin:12px 0 20px;font-weight:900;max-width:920px}.subtitle{font-size:25px;line-height:1.45;color:var(--muted);max-width:920px}.grid{display:grid;gap:24px}.two{grid-template-columns:1.05fr .95fr;align-items:center}.three{grid-template-columns:repeat(3,1fr)}.card{background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.045));border:1px solid var(--line);border-radius:28px;padding:26px;box-shadow:0 26px 70px rgba(0,0,0,.25);backdrop-filter:blur(10px)}.bigcard{padding:36px}.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:999px;padding:10px 16px;color:var(--muted);font-weight:700;background:rgba(255,255,255,.06)}.icon{font-size:38px}.h2{font-size:44px;margin:0 0 20px;font-weight:900}.h3{font-size:26px;margin:0 0 10px;font-weight:850}.text{font-size:21px;line-height:1.42;color:var(--muted)}.list{display:grid;gap:16px;margin-top:18px}.item{display:flex;gap:14px;align-items:flex-start;font-size:22px;color:var(--muted)}.dot{width:13px;height:13px;border-radius:50%;background:var(--cyan);margin-top:9px;flex:0 0 auto}.road{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}.step{position:relative;min-height:210px;padding:22px;border-radius:24px;background:rgba(255,255,255,.08);border:1px solid var(--line)}.step b{display:block;font-size:21px;color:var(--ink);margin:12px 0 8px}.num{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#06101d;font-weight:900}.week{font-size:14px;color:var(--yellow);font-weight:900;letter-spacing:.08em}.project{font-size:56px;font-weight:900;line-height:1.05}.mock{aspect-ratio:16/10;border-radius:28px;background:linear-gradient(135deg,#122a47,#091324);border:1px solid var(--line);padding:18px;box-shadow:0 30px 90px rgba(0,0,0,.35)}.browser{height:100%;border-radius:20px;background:#eaf5ff;color:#0a1630;overflow:hidden}.bar{height:36px;background:#d7e7f7;display:flex;align-items:center;padding:0 12px;gap:8px}.circle{width:10px;height:10px;border-radius:50%;background:#8ca6bd}.heroMock{height:110px;background:linear-gradient(135deg,#49a8ff,#52ffe0);margin:18px;border-radius:18px}.mockGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 18px}.mockBox{height:58px;border-radius:12px;background:#cddff0}.timeline{display:grid;gap:13px}.row{display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:center}.row span:first-child{color:var(--yellow);font-weight:900}.bar2{height:42px;border-radius:999px;background:linear-gradient(90deg,rgba(73,168,255,.9),rgba(82,255,224,.72));display:flex;align-items:center;padding-left:18px;color:#03101c;font-weight:900}.footer{position:absolute;left:72px;right:72px;bottom:24px;display:flex;justify-content:space-between;color:rgba(255,255,255,.55);font-weight:700}.nav{position:fixed;right:24px;bottom:24px;display:flex;gap:10px;z-index:10}.nav button{border:0;border-radius:999px;padding:12px 16px;background:rgba(255,255,255,.12);color:#fff;font-weight:900;cursor:pointer}.progress{position:fixed;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.08);z-index:12}.progress div{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:.25s}.tag{font-size:15px;color:#06101d;background:var(--yellow);padding:7px 11px;border-radius:999px;font-weight:900;display:inline-block}.quote{font-size:34px;line-height:1.25;font-weight:850}.small{font-size:18px;color:var(--muted);line-height:1.4}.center{place-items:center;text-align:center}.accent{color:var(--cyan)}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media print{body{overflow:visible}.slide{position:relative;display:grid;page-break-after:always;width:100vw;height:100vh}.nav,.progress{display:none}}@media (max-width:900px){.slide{padding:36px 24px}.title{font-size:42px}.h2{font-size:34px}.two,.three,.road{grid-template-columns:1fr}.footer{left:24px;right:24px}.mock{display:none}}
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide active center">
+      <div>
+        <div class="kicker">Coding Level 7 • Kelas 7</div>
+        <h1 class="title">Roadmap Pembelajaran<br><span class="accent">Web Design Responsif</span></h1>
+        <p class="subtitle">HTML & CSS Lanjutan melalui proyek Landing Page Responsif selama 15 pertemuan.</p>
+        <div style="margin-top:34px"><span class="pill">🎯 Semantic HTML</span> <span class="pill">📐 Flexbox & Grid</span> <span class="pill">📱 Responsive Design</span></div>
+      </div>
+      <div class="footer"><span>Framework Pembelajaran Coding</span><span>Level 7</span></div>
+    </section>
+
+    <section class="slide two">
+      <div>
+        <div class="kicker">Arah Capaian</div>
+        <h2 class="h2">Dari website sederhana menjadi landing page yang terstruktur.</h2>
+        <p class="text">Pada akhir Level 7, siswa mampu merancang dan mengembangkan website yang lebih terstruktur, responsif, mudah digunakan, serta menerapkan prinsip dasar UI/UX.</p>
+        <div class="list">
+          <div class="item"><span class="dot"></span><span>Menganalisis kebutuhan pengguna dan target website.</span></div>
+          <div class="item"><span class="dot"></span><span>Menggunakan Semantic HTML, Form, Table, Flexbox, CSS Grid, dan Media Query.</span></div>
+          <div class="item"><span class="dot"></span><span>Menguji, memperbaiki, dan mempresentasikan proyek.</span></div>
+        </div>
+      </div>
+      <div class="mock"><div class="browser"><div class="bar"><span class="circle"></span><span class="circle"></span><span class="circle"></span></div><div class="heroMock"></div><div class="mockGrid"><div class="mockBox"></div><div class="mockBox"></div><div class="mockBox"></div></div></div></div>
+      <div class="footer"><span>Slide 2</span><span>Capaian pembelajaran</span></div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <div class="kicker">Roadmap 15 Pertemuan</div>
+        <h2 class="h2">Alur belajar bertahap: konsep → layout → responsif → proyek.</h2>
+        <div class="road">
+          <div class="step"><div class="num">1</div><b>Diagnostik & Review</b><p class="small">Bootcamp HTML & CSS / analisis kebutuhan pengguna.</p><span class="week">P1</span></div>
+          <div class="step"><div class="num">2</div><b>Struktur Konten</b><p class="small">Semantic HTML, Form, dan Table untuk menyusun informasi.</p><span class="week">P2–4</span></div>
+          <div class="step"><div class="num">3</div><b>Layout Modern</b><p class="small">Flexbox dan CSS Grid untuk desain dua/lebih kolom.</p><span class="week">P5–7</span></div>
+          <div class="step"><div class="num">4</div><b>UX & Responsif</b><p class="small">Media Query, mobile first, tipografi, warna, whitespace.</p><span class="week">P8–9</span></div>
+          <div class="step"><div class="num">5</div><b>Proyek Akhir</b><p class="small">Landing Page Responsif, debugging, presentasi, refleksi.</p><span class="week">P10–15</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>Slide 3</span><span>ATP Level 7</span></div>
+    </section>
+
+    <section class="slide two">
+      <div class="card bigcard">
+        <div class="kicker">Fase 1</div>
+        <h2 class="h2">Fondasi & struktur website</h2>
+        <div class="list">
+          <div class="item"><span class="dot"></span><span><b>P1:</b> Review HTML & CSS, asesmen diagnostik, profil sederhana.</span></div>
+          <div class="item"><span class="dot"></span><span><b>P2:</b> Semantic HTML: header, nav, main, section, article, footer.</span></div>
+          <div class="item"><span class="dot"></span><span><b>P3:</b> HTML Form: input, textarea, select, radio, checkbox, button.</span></div>
+          <div class="item"><span class="dot"></span><span><b>P4:</b> HTML Table untuk menyajikan biodata, jadwal, dan data.</span></div>
+        </div>
+      </div>
+      <div class="card"><div class="icon">🧱</div><h3 class="h3">Output fase</h3><p class="text">Siswa memiliki kerangka landing page yang rapi, bermakna, dan siap didesain.</p></div>
+      <div class="footer"><span>Slide 4</span><span>Pertemuan 1–4</span></div>
+    </section>
+
+    <section class="slide two">
+      <div class="card"><div class="icon">📐</div><h3 class="h3">Output fase</h3><p class="text">Siswa mampu mengatur layout profesional dengan hero section, galeri, portofolio, dan halaman yang mobile-friendly.</p></div>
+      <div class="card bigcard">
+        <div class="kicker">Fase 2</div>
+        <h2 class="h2">Layout, responsif, dan UI/UX</h2>
+        <div class="list">
+          <div class="item"><span class="dot"></span><span><b>P5:</b> Flexbox untuk layout dua dan tiga kolom.</span></div>
+          <div class="item"><span class="dot"></span><span><b>P6:</b> CSS Grid untuk galeri dan layout kompleks.</span></div>
+          <div class="item"><span class="dot"></span><span><b>P7:</b> Responsive Web Design dengan Media Query.</span></div>
+          <div class="item"><span class="dot"></span><span><b>P8:</b> Prinsip UI/UX: warna, tipografi, navigasi, konsistensi.</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>Slide 5</span><span>Pertemuan 5–8</span></div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <div class="kicker">Fase 3</div>
+        <h2 class="h2">Sprint proyek Landing Page Responsif</h2>
+        <div class="timeline">
+          <div class="row"><span>P9</span><div class="bar2">Perencanaan: tujuan, audiens, wireframe, konten</div></div>
+          <div class="row"><span>P10–11</span><div class="bar2">Pengembangan: hero, about, services, gallery, contact</div></div>
+          <div class="row"><span>P12</span><div class="bar2">Penyempurnaan responsif: desktop, tablet, mobile</div></div>
+          <div class="row"><span>P13</span><div class="bar2">Review kode, debugging, dan perbaikan desain</div></div>
+          <div class="row"><span>P14–15</span><div class="bar2">Presentasi, showcase, refleksi, dan portofolio</div></div>
+        </div>
+      </div>
+      <div class="footer"><span>Slide 6</span><span>Project sprint</span></div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <div class="kicker">Asesmen</div>
+        <h2 class="h2">Penilaian menekankan proses, produk, dan komunikasi.</h2>
+        <div class="grid three">
+          <div class="card"><div class="icon">🧪</div><h3 class="h3">Formatif</h3><p class="text">Praktik coding, review kode, diskusi UI/UX, dan debugging setiap fase.</p></div>
+          <div class="card"><div class="icon">🚀</div><h3 class="h3">Sumatif</h3><p class="text">Landing Page Responsif dengan struktur lengkap, desain rapi, dan tampil baik di berbagai ukuran layar.</p></div>
+          <div class="card"><div class="icon">🗂️</div><h3 class="h3">Portofolio</h3><p class="text">Screenshot proyek, source code, dokumentasi, riwayat revisi, dan refleksi belajar.</p></div>
+        </div>
+        <div style="margin-top:26px" class="pill">Rubrik proyek: struktur kode • desain • fungsionalitas • kreativitas • presentasi • dokumentasi</div>
+      </div>
+      <div class="footer"><span>Slide 7</span><span>Assessment roadmap</span></div>
+    </section>
+
+    <section class="slide center">
+      <div class="card bigcard" style="max-width:980px">
+        <span class="tag">Target Akhir Level 7</span>
+        <p class="quote">Setiap siswa menghasilkan satu <span class="accent">Landing Page Responsif</span> yang menyelesaikan kebutuhan nyata, terdokumentasi, dan siap masuk portofolio digital.</p>
+        <p class="subtitle" style="margin:auto">Kompetensi kunci: berpikir komputasional, desain web, kolaborasi, presentasi, dan refleksi.</p>
+      </div>
+      <div class="footer"><span>Slide 8</span><span>Showcase & refleksi</span></div>
+    </section>
+  </main>
+  <div class="nav"><button onclick="prev()">‹</button><button onclick="next()">›</button></div>
+  <div class="progress"><div id="prog"></div></div>
+  <script>
+    const slides=[...document.querySelectorAll('.slide')]; let i=0;
+    function show(n){i=(n+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('active',k===i));document.getElementById('prog').style.width=((i+1)/slides.length*100)+'%'}
+    function next(){show(i+1)} function prev(){show(i-1)}
+    document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))next(); if(['ArrowLeft','PageUp'].includes(e.key))prev();});
+    show(0);
+  </script>
+</body>
+</html>

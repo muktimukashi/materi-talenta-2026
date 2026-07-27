@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP8.02 — Variabel dan Tipe Data JavaScript</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html,body{height:100%;overflow:hidden}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#020617;color:white}
+    .slide{display:none}
+    .slide.active{display:flex;animation:fade .45s ease}
+    @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .glass{background:rgba(255,255,255,.11);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.16)}
+    .soft-shadow{box-shadow:0 24px 70px rgba(2,6,23,.35)}
+    .sidebar-open #sidebar{transform:translateX(0)}
+    .sidebar-open #overlay{opacity:1;pointer-events:auto}
+    .float{animation:float 4s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .choice.correct{background:#16a34a!important;color:white!important;border-color:#16a34a!important}
+    .choice.wrong{background:#dc2626!important;color:white!important;border-color:#dc2626!important}
+    .code-line{opacity:0;transform:translateY(7px);animation:lineIn .35s forwards}
+    @keyframes lineIn{to{opacity:1;transform:translateY(0)}}
+    .confetti{position:fixed;top:-20px;width:10px;height:16px;z-index:9999;animation:fall 2.6s linear forwards}
+    @keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.9}}
+    textarea{tab-size:2}
+  </style>
+</head>
+<body>
+<div id="app" class="h-full relative overflow-hidden">
+
+  <div id="overlay" onclick="closeSidebar()" class="fixed inset-0 bg-slate-950/70 opacity-0 pointer-events-none transition z-40"></div>
+
+  <aside id="sidebar" class="fixed z-50 left-0 top-0 h-full w-80 max-w-[88vw] bg-slate-950/95 border-r border-white/10 -translate-x-full transition-transform duration-300">
+    <div class="flex items-center justify-between p-5 border-b border-white/10">
+      <div>
+        <p class="text-xs uppercase tracking-[.28em] text-yellow-300">TP8.02</p>
+        <h2 class="text-xl font-black mt-1">Variabel & Tipe Data</h2>
+      </div>
+      <button onclick="closeSidebar()" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 text-xl">✕</button>
+    </div>
+    <div id="navList" class="p-4 space-y-2 overflow-y-auto h-[calc(100%-86px)]"></div>
+  </aside>
+
+  <header class="fixed z-30 top-0 left-0 right-0 p-4 md:p-5 flex items-center justify-between">
+    <button onclick="openSidebar()" class="glass rounded-2xl px-4 py-3 font-bold hover:bg-white/20">☰ <span class="hidden sm:inline">Navigasi</span></button>
+    <div class="flex items-center gap-3">
+      <div class="hidden md:flex glass rounded-full px-4 py-2 text-sm">JavaScript Dasar • VS Code • Praktik</div>
+      <button onclick="toggleFullscreen()" class="glass rounded-2xl px-4 py-3 hover:bg-white/20">⛶</button>
+    </div>
+  </header>
+
+  <main id="slides" class="h-full">
+
+    <section class="slide active h-full items-center justify-center bg-gradient-to-br from-yellow-400 via-orange-500 to-pink-600 p-6">
+      <div class="max-w-6xl w-full grid lg:grid-cols-2 gap-10 items-center text-slate-950">
+        <div>
+          <span class="bg-white/75 rounded-full px-4 py-2 text-sm font-black">🚀 JavaScript Mission</span>
+          <h1 class="text-5xl md:text-7xl font-black leading-tight mt-5">Variabel &<br><span class="text-white drop-shadow">Tipe Data</span></h1>
+          <p class="text-xl md:text-2xl mt-5 font-semibold">Hari ini kita belajar bagaimana aplikasi menyimpan data.</p>
+          <div class="mt-8 flex flex-wrap gap-3 text-white">
+            <span class="glass px-4 py-2 rounded-xl">📦 Variabel</span>
+            <span class="glass px-4 py-2 rounded-xl">🔢 Number</span>
+            <span class="glass px-4 py-2 rounded-xl">🔤 String</span>
+            <span class="glass px-4 py-2 rounded-xl">✅ Boolean</span>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="bg-slate-950 text-emerald-300 rounded-[2rem] p-6 soft-shadow rotate-2 float">
+            <div class="flex gap-2 mb-5"><span class="w-3 h-3 rounded-full bg-red-400"></span><span class="w-3 h-3 rounded-full bg-yellow-300"></span><span class="w-3 h-3 rounded-full bg-green-400"></span></div>
+            <pre class="text-base md:text-xl"><code>let nama = "Alya";
+let umur = 12;
+let sukaCoding = true;
+
+console.log(nama);</code></pre>
+          </div>
+          <div class="absolute -bottom-7 -left-5 bg-white/80 rounded-2xl p-4 rotate-[-6deg] font-black">📦 Data disimpan di variabel!</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-gradient-to-br from-sky-600 to-indigo-900 p-6">
+      <div class="max-w-5xl w-full text-center">
+        <p class="uppercase tracking-[.32em] text-sky-200 text-sm">Engage</p>
+        <h2 class="text-5xl md:text-7xl font-black mt-4">Bagaimana aplikasi menyimpan data?</h2>
+        <div class="grid md:grid-cols-3 gap-5 mt-12">
+          <div class="glass rounded-3xl p-7"><div class="text-6xl">👤</div><h3 class="text-xl font-black mt-3">Nama akun</h3></div>
+          <div class="glass rounded-3xl p-7"><div class="text-6xl">🎮</div><h3 class="text-xl font-black mt-3">Skor game</h3></div>
+          <div class="glass rounded-3xl p-7"><div class="text-6xl">🛒</div><h3 class="text-xl font-black mt-3">Jumlah barang</h3></div>
+        </div>
+        <p class="text-xl text-white/80 mt-8">Semua itu perlu tempat penyimpanan sementara di dalam program.</p>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-900 p-6">
+      <div class="max-w-6xl w-full grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="uppercase tracking-[.32em] text-emerald-200 text-sm">Explore</p>
+          <h2 class="text-5xl md:text-7xl font-black mt-4">Variabel itu apa?</h2>
+          <p class="text-2xl mt-6 leading-relaxed">Variabel adalah <b>kotak penyimpanan data</b> di dalam program.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-5">
+          <div class="bg-white text-slate-900 rounded-3xl p-7 text-center soft-shadow"><div class="text-6xl">📦</div><h3 class="font-black text-xl mt-3">Kotak</h3><p class="mt-2 text-slate-500">variabel</p></div>
+          <div class="bg-white text-slate-900 rounded-3xl p-7 text-center soft-shadow"><div class="text-6xl">🏷️</div><h3 class="font-black text-xl mt-3">Label</h3><p class="mt-2 text-slate-500">nama variabel</p></div>
+          <div class="bg-white text-slate-900 rounded-3xl p-7 text-center soft-shadow"><div class="text-6xl">🎁</div><h3 class="font-black text-xl mt-3">Isi</h3><p class="mt-2 text-slate-500">nilai data</p></div>
+          <div class="bg-white text-slate-900 rounded-3xl p-7 text-center soft-shadow"><div class="text-6xl">💻</div><h3 class="font-black text-xl mt-3">Program</h3><p class="mt-2 text-slate-500">memakai data</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-slate-950 p-6">
+      <div class="max-w-5xl w-full">
+        <p class="uppercase tracking-[.32em] text-violet-300 text-sm text-center">Explain</p>
+        <h2 class="text-5xl md:text-6xl font-black text-center mt-4">Cara Membuat Variabel</h2>
+        <div class="mt-10 bg-[#111827] rounded-[2rem] p-7 md:p-10 border border-white/10 soft-shadow font-mono text-xl md:text-3xl leading-relaxed">
+          <div class="code-line text-pink-300" style="animation-delay:.1s">let nama = "Budi";</div>
+          <div class="code-line text-sky-300" style="animation-delay:.45s">let umur = 12;</div>
+          <div class="code-line text-emerald-300" style="animation-delay:.8s">let sudahLogin = true;</div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4 mt-7 text-center">
+          <div class="glass rounded-2xl p-4"><b>let</b><br><span class="text-white/70">membuat variabel</span></div>
+          <div class="glass rounded-2xl p-4"><b>nama</b><br><span class="text-white/70">nama variabel</span></div>
+          <div class="glass rounded-2xl p-4"><b>"Budi"</b><br><span class="text-white/70">nilai variabel</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-gradient-to-br from-fuchsia-600 to-violet-900 p-6">
+      <div class="max-w-6xl w-full">
+        <h2 class="text-5xl md:text-6xl font-black text-center">Tipe Data Dasar</h2>
+        <p class="text-xl text-white/80 mt-4 text-center">Tipe data memberi tahu jenis isi dari sebuah variabel.</p>
+        <div class="grid md:grid-cols-3 gap-5 mt-10">
+          <div class="bg-white text-slate-900 rounded-3xl p-7 soft-shadow">
+            <div class="text-6xl">🔤</div><h3 class="text-3xl font-black mt-4">String</h3><p class="mt-3">Teks, ditulis memakai tanda petik.</p><pre class="mt-4 bg-slate-950 text-emerald-300 rounded-2xl p-4 text-sm">let nama = "Sinta";</pre>
+          </div>
+          <div class="bg-white text-slate-900 rounded-3xl p-7 soft-shadow">
+            <div class="text-6xl">🔢</div><h3 class="text-3xl font-black mt-4">Number</h3><p class="mt-3">Angka, tanpa tanda petik.</p><pre class="mt-4 bg-slate-950 text-emerald-300 rounded-2xl p-4 text-sm">let umur = 12;</pre>
+          </div>
+          <div class="bg-white text-slate-900 rounded-3xl p-7 soft-shadow">
+            <div class="text-6xl">✅</div><h3 class="text-3xl font-black mt-4">Boolean</h3><p class="mt-3">Nilai benar atau salah.</p><pre class="mt-4 bg-slate-950 text-emerald-300 rounded-2xl p-4 text-sm">let hadir = true;</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-gradient-to-br from-amber-400 to-rose-600 p-6">
+      <div class="max-w-6xl w-full text-slate-950">
+        <p class="uppercase tracking-[.32em] text-slate-800/70 text-sm text-center">Explain</p>
+        <h2 class="text-5xl md:text-6xl font-black text-center mt-3">Jangan Tertukar!</h2>
+        <div class="grid md:grid-cols-2 gap-6 mt-10">
+          <div class="bg-white/85 rounded-[2rem] p-7 soft-shadow">
+            <h3 class="text-3xl font-black">String</h3>
+            <pre class="mt-4 bg-slate-950 text-emerald-300 rounded-2xl p-5 text-xl">let umur = "12";</pre>
+            <p class="mt-4 text-lg">Ini dibaca sebagai <b>teks</b>, karena memakai tanda petik.</p>
+          </div>
+          <div class="bg-white/85 rounded-[2rem] p-7 soft-shadow">
+            <h3 class="text-3xl font-black">Number</h3>
+            <pre class="mt-4 bg-slate-950 text-emerald-300 rounded-2xl p-5 text-xl">let umur = 12;</pre>
+            <p class="mt-4 text-lg">Ini dibaca sebagai <b>angka</b>, karena tanpa tanda petik.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-gradient-to-br from-slate-800 to-slate-950 p-4 md:p-6">
+      <div class="max-w-7xl w-full grid lg:grid-cols-2 gap-6">
+        <div class="bg-[#1e1e1e] rounded-3xl overflow-hidden border border-white/10 soft-shadow">
+          <div class="bg-[#323233] px-4 py-3 flex justify-between items-center">
+            <span class="font-bold">biodata.js</span>
+            <button onclick="runCode()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-4 py-2 rounded-xl font-black">▶ Jalankan</button>
+          </div>
+          <textarea id="editor" spellcheck="false" class="w-full h-[440px] bg-[#1e1e1e] text-emerald-300 p-5 font-mono outline-none resize-none">let nama = "Alya";
+let umur = 12;
+let kelas = "8A";
+let sukaCoding = true;
+
+console.log("Nama: " + nama);
+console.log("Umur: " + umur);
+console.log("Kelas: " + kelas);
+console.log("Suka Coding: " + sukaCoding);</textarea>
+        </div>
+        <div class="bg-slate-950 rounded-3xl overflow-hidden border border-white/10 soft-shadow">
+          <div class="bg-slate-800 px-4 py-3 flex gap-2"><span class="w-3 h-3 rounded-full bg-red-400"></span><span class="w-3 h-3 rounded-full bg-yellow-300"></span><span class="w-3 h-3 rounded-full bg-green-400"></span><span class="ml-3 font-bold">Console Output</span></div>
+          <pre id="consoleOut" class="h-[440px] p-5 text-emerald-300 font-mono text-lg whitespace-pre-wrap">Klik tombol Jalankan untuk melihat hasil.</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-800 p-6">
+      <div class="max-w-6xl w-full">
+        <p class="uppercase tracking-[.32em] text-cyan-100 text-sm text-center">Elaborate</p>
+        <h2 class="text-5xl md:text-6xl font-black text-center mt-3">Challenge 1: Biodata dengan Variabel</h2>
+        <div class="grid md:grid-cols-2 gap-6 mt-10">
+          <div class="glass rounded-[2rem] p-7">
+            <h3 class="text-3xl font-black">Buat variabel:</h3>
+            <div class="grid grid-cols-2 gap-3 mt-5">
+              <div class="bg-white/10 rounded-2xl p-4">👤 nama</div>
+              <div class="bg-white/10 rounded-2xl p-4">🔢 umur</div>
+              <div class="bg-white/10 rounded-2xl p-4">🏫 kelas</div>
+              <div class="bg-white/10 rounded-2xl p-4">🎯 hobi</div>
+              <div class="bg-white/10 rounded-2xl p-4">✅ sudahBelajarJS</div>
+              <div class="bg-white/10 rounded-2xl p-4">⭐ citaCita</div>
+            </div>
+          </div>
+          <div class="bg-slate-950 rounded-[2rem] p-7 font-mono text-base md:text-lg soft-shadow">
+<pre class="text-emerald-300">let nama = "...";
+let umur = ...;
+let kelas = "...";
+let hobi = "...";
+let sudahBelajarJS = true;
+let citaCita = "...";
+
+console.log("Halo, nama saya " + nama);</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-gradient-to-br from-indigo-600 to-violet-950 p-6">
+      <div class="max-w-6xl w-full">
+        <p class="uppercase tracking-[.32em] text-violet-200 text-sm text-center">Elaborate</p>
+        <h2 class="text-5xl md:text-6xl font-black text-center mt-3">Challenge 2: Tebak Tipe Data</h2>
+        <div class="grid md:grid-cols-3 gap-5 mt-10">
+          <div class="glass rounded-3xl p-6"><pre class="font-mono text-xl text-yellow-300">let poin = 95;</pre><p class="mt-4 text-xl">Tipe data: __________</p></div>
+          <div class="glass rounded-3xl p-6"><pre class="font-mono text-xl text-yellow-300">let sekolah = "SMP";</pre><p class="mt-4 text-xl">Tipe data: __________</p></div>
+          <div class="glass rounded-3xl p-6"><pre class="font-mono text-xl text-yellow-300">let lulus = false;</pre><p class="mt-4 text-xl">Tipe data: __________</p></div>
+        </div>
+        <p class="text-center text-xl text-white/75 mt-8">Diskusikan dengan teman sebangku, lalu jelaskan alasannya.</p>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-gradient-to-br from-lime-400 to-emerald-700 p-6">
+      <div class="max-w-6xl w-full text-emerald-950">
+        <p class="uppercase tracking-[.32em] text-emerald-950/70 text-sm text-center">Evaluate</p>
+        <h2 class="text-5xl md:text-6xl font-black text-center mt-3">Mini Quiz</h2>
+        <p class="text-xl text-center mt-3 font-semibold">Manakah contoh variabel bertipe Boolean?</p>
+        <div class="grid md:grid-cols-2 gap-4 mt-8 text-white">
+          <button class="choice glass rounded-2xl p-5 text-left text-lg font-bold border border-white/20" onclick="answer(this,false)">let nama = "Rafi";</button>
+          <button class="choice glass rounded-2xl p-5 text-left text-lg font-bold border border-white/20" onclick="answer(this,false)">let umur = 13;</button>
+          <button class="choice glass rounded-2xl p-5 text-left text-lg font-bold border border-white/20" onclick="answer(this,true)">let aktif = true;</button>
+          <button class="choice glass rounded-2xl p-5 text-left text-lg font-bold border border-white/20" onclick="answer(this,false)">let hobi = "coding";</button>
+        </div>
+        <p id="quizFeedback" class="text-center mt-6 text-2xl font-black"></p>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-gradient-to-br from-pink-600 to-orange-500 p-6">
+      <div class="max-w-6xl w-full">
+        <h2 class="text-5xl md:text-6xl font-black text-center">Checklist Praktik Hari Ini</h2>
+        <div class="grid md:grid-cols-2 gap-5 mt-10">
+          <div class="glass rounded-3xl p-6 text-xl">✅ Membuka VS Code</div>
+          <div class="glass rounded-3xl p-6 text-xl">✅ Membuat file <b>biodata.js</b></div>
+          <div class="glass rounded-3xl p-6 text-xl">✅ Membuat variabel String</div>
+          <div class="glass rounded-3xl p-6 text-xl">✅ Membuat variabel Number</div>
+          <div class="glass rounded-3xl p-6 text-xl">✅ Membuat variabel Boolean</div>
+          <div class="glass rounded-3xl p-6 text-xl">✅ Menampilkan data dengan console.log</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide h-full items-center justify-center bg-gradient-to-br from-violet-700 via-fuchsia-600 to-yellow-400 p-6">
+      <div class="max-w-5xl text-center">
+        <div class="text-8xl float">🏅</div>
+        <h2 class="text-5xl md:text-7xl font-black mt-5">Mission Complete!</h2>
+        <p class="text-2xl mt-4">Kamu sudah bisa menyimpan data menggunakan variabel.</p>
+        <div class="mt-6 inline-block bg-white text-violet-700 px-8 py-5 rounded-3xl text-3xl md:text-5xl font-black soft-shadow">JavaScript Data Keeper</div>
+        <button onclick="celebrate()" class="mt-8 bg-slate-950 hover:bg-slate-800 px-8 py-4 rounded-2xl font-black text-xl">🎉 Rayakan</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="fixed z-30 bottom-0 left-0 right-0 p-4 md:p-5">
+    <div class="max-w-6xl mx-auto flex items-center gap-3">
+      <button onclick="prevSlide()" class="glass rounded-2xl px-4 py-3 hover:bg-white/20">←</button>
+      <div class="flex-1 h-2 bg-white/20 rounded-full overflow-hidden"><div id="progress" class="h-full bg-yellow-300 transition-all duration-300"></div></div>
+      <span id="counter" class="glass rounded-2xl px-4 py-3 text-sm min-w-[82px] text-center">1 / 13</span>
+      <button onclick="nextSlide()" class="glass rounded-2xl px-4 py-3 hover:bg-white/20">→</button>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let current=0;
+const titles=[
+  'Cover','Engage: Hook','Explore: Variabel','Explain: Membuat Variabel','Tipe Data',
+  'String vs Number','Praktik Console','Challenge Biodata','Challenge Tipe Data',
+  'Evaluate: Quiz','Checklist','Penutup'
+];
+
+function update(){
+  slides.forEach((s,i)=>s.classList.toggle('active',i===current));
+  document.getElementById('counter').textContent=`${current+1} / ${slides.length}`;
+  document.getElementById('progress').style.width=`${((current+1)/slides.length)*100}%`;
+  renderNav();
+}
+
+function renderNav(){
+  document.getElementById('navList').innerHTML=slides.map((_,i)=>`
+    <button onclick="goTo(${i})" class="w-full text-left px-4 py-3 rounded-xl transition ${i===current?'bg-yellow-400 text-slate-950 font-black':'hover:bg-white/10 text-slate-300'}">
+      <span class="text-xs opacity-60 mr-2">${String(i+1).padStart(2,'0')}</span>${titles[i]||'Slide'}
+    </button>`).join('');
+}
+
+function nextSlide(){if(current<slides.length-1){current++;update()}}
+function prevSlide(){if(current>0){current--;update()}}
+function goTo(i){current=i;update();closeSidebar()}
+function openSidebar(){document.body.classList.add('sidebar-open')}
+function closeSidebar(){document.body.classList.remove('sidebar-open')}
+function toggleFullscreen(){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='PageDown')nextSlide();
+  if(e.key==='ArrowLeft'||e.key==='PageUp')prevSlide();
+  if(e.key==='Escape')closeSidebar();
+});
+
+function runCode(){
+  const code=document.getElementById('editor').value;
+  const out=document.getElementById('consoleOut');
+  const logs=[];
+  try{
+    const fakeConsole={log:(...args)=>logs.push(args.join(' '))};
+    new Function('console', code)(fakeConsole);
+    out.textContent=logs.length?logs.join('\n'):'Program berjalan, tetapi belum ada console.log.';
+  }catch(err){
+    out.textContent='Error: '+err.message;
+  }
+}
+
+function answer(btn, correct){
+  document.querySelectorAll('.choice').forEach(b=>b.disabled=true);
+  btn.classList.add(correct?'correct':'wrong');
+  const feedback=document.getElementById('quizFeedback');
+  if(correct){
+    feedback.textContent='Benar! true/false adalah Boolean. ✅';
+    celebrate();
+  }else{
+    feedback.textContent='Belum tepat. Boolean berisi true atau false. 💡';
+    document.querySelectorAll('.choice')[2].classList.add('correct');
+  }
+}
+
+function celebrate(){
+  const colors=['#fde047','#fb7185','#60a5fa','#34d399','#c084fc'];
+  for(let i=0;i<80;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDelay=Math.random()*.8+'s';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3300);
+  }
+}
+update();
+</script>
+</body>
+</html>

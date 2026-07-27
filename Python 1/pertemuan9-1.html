@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Level 9 - Pertemuan 1 | Python & Pengenalan IDE</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#0f172a;color:#fff;overflow:hidden}.deck{height:100vh;width:100vw;position:relative}.slide{display:none;height:100vh;width:100vw;padding:64px 80px;background:radial-gradient(circle at top right,#2563eb55,transparent 35%),linear-gradient(135deg,#0f172a,#111827);position:absolute;inset:0}.slide.active{display:flex;flex-direction:column;justify-content:center;animation:fade .35s ease}@keyframes fade{from{opacity:.2;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}h1{font-size:64px;line-height:1.05;margin:0 0 24px}h2{font-size:44px;margin:0 0 24px;color:#93c5fd}h3{font-size:28px;margin:0 0 16px;color:#fde68a}p,li{font-size:24px;line-height:1.5;color:#e5e7eb}.tag{display:inline-block;background:#2563eb;padding:10px 18px;border-radius:999px;font-weight:700;margin-bottom:24px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}.card{background:#ffffff12;border:1px solid #ffffff20;border-radius:24px;padding:28px;backdrop-filter:blur(10px)}.big{font-size:32px}.code{background:#020617;border:1px solid #334155;border-radius:20px;padding:24px;font-family:Consolas,monospace;font-size:26px;color:#a7f3d0;white-space:pre-wrap}.footer{position:absolute;bottom:24px;left:80px;right:80px;display:flex;justify-content:space-between;color:#94a3b8;font-size:16px}.nav{position:fixed;right:28px;bottom:24px;display:flex;gap:10px;z-index:10}button{background:#2563eb;color:white;border:0;border-radius:14px;padding:12px 16px;font-size:18px;cursor:pointer}button:hover{background:#1d4ed8}.accent{color:#38bdf8}.warn{color:#facc15}.center{text-align:center}.emoji{font-size:72px;margin-bottom:18px}@media(max-width:800px){.slide{padding:40px 28px}h1{font-size:42px}h2{font-size:32px}p,li{font-size:19px}.grid{grid-template-columns:1fr}.footer{left:28px;right:28px}}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<section class="slide active">
+  <span class="tag">Level 9 • Pertemuan 1</span>
+  <h1>Bootcamp Python &<br><span class="accent">Pengenalan IDE</span></h1>
+  <p class="big">Langkah pertama membuat program Python dan memahami alat kerja programmer.</p>
+</section>
+
+<section class="slide">
+  <h2>Tujuan Pembelajaran</h2>
+  <div class="grid">
+    <div class="card"><h3>TP9.00</h3><p>Mengenal Python, IDE, dan sintaks dasar.</p></div>
+    <div class="card"><h3>TP9.01</h3><p>Menjelaskan konsep dasar Python dan algoritma sederhana.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Kompetensi Awal</h2>
+  <ul>
+    <li>Memahami logika pemrograman dasar.</li>
+    <li>Pernah menggunakan komputer dan folder proyek.</li>
+    <li>Mampu mengikuti instruksi bertahap.</li>
+    <li>Berani mencoba dan melakukan debugging.</li>
+  </ul>
+</section>
+
+<section class="slide center">
+  <div class="emoji">🎮</div>
+  <h2>Hook</h2>
+  <h1>Bagaimana sebuah game dibuat?</h1>
+  <p>Game dibuat dari instruksi kecil yang disusun menjadi aturan, gerakan, skor, dan interaksi.</p>
+</section>
+
+<section class="slide">
+  <h2>Apa Itu Python?</h2>
+  <div class="card">
+    <p>Python adalah bahasa pemrograman yang mudah dibaca, cocok untuk pemula, dan banyak digunakan untuk aplikasi, data, AI, otomasi, serta game sederhana.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Mengapa Belajar Python?</h2>
+  <div class="grid">
+    <div class="card"><h3>Mudah Dibaca</h3><p>Sintaks Python mirip bahasa manusia.</p></div>
+    <div class="card"><h3>Banyak Kegunaan</h3><p>Bisa digunakan untuk game, AI, data, dan aplikasi.</p></div>
+    <div class="card"><h3>Cocok untuk Logika</h3><p>Membantu memahami algoritma secara bertahap.</p></div>
+    <div class="card"><h3>Komunitas Besar</h3><p>Banyak dokumentasi dan contoh belajar.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Mengenal IDE</h2>
+  <p>IDE adalah tempat kita menulis, menjalankan, dan memperbaiki kode.</p>
+  <div class="grid">
+    <div class="card"><h3>VS Code</h3><p>Ringan, populer, dan cocok untuk proyek besar.</p></div>
+    <div class="card"><h3>Thonny</h3><p>Sederhana, ramah pemula, cocok untuk belajar Python dasar.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Program Python Pertama</h2>
+  <p>Buat file bernama <b>main.py</b>, lalu tulis:</p>
+  <div class="code">print("Hello, World!")</div>
+  <p>Perintah <b>print()</b> digunakan untuk menampilkan teks ke layar.</p>
+</section>
+
+<section class="slide">
+  <h2>Struktur Dasar Program</h2>
+  <div class="code"># komentar
+nama = "Alya"
+umur = 14
+
+print(nama)
+print(umur)</div>
+  <ul>
+    <li><b>Komentar</b> diawali tanda <b>#</b>.</li>
+    <li><b>Variabel</b> menyimpan data.</li>
+    <li><b>print()</b> menampilkan hasil.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Aturan Sintaks Dasar</h2>
+  <div class="grid">
+    <div class="card"><h3>Case Sensitive</h3><p><b>Nama</b> dan <b>nama</b> dianggap berbeda.</p></div>
+    <div class="card"><h3>Tanda Kutip</h3><p>Teks ditulis dengan "..." atau '...'.</p></div>
+    <div class="card"><h3>Indentasi</h3><p>Jarak menjorok penting dalam Python.</p></div>
+    <div class="card"><h3>Error Itu Normal</h3><p>Error adalah bagian dari belajar debugging.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Latihan: Biodata Sederhana</h2>
+  <div class="code">print("Nama: Budi")
+print("Kelas: 9")
+print("Hobi: Bermain game")
+print("Cita-cita: Game Developer")</div>
+  <p>Ubah isi biodata sesuai data diri masing-masing.</p>
+</section>
+
+<section class="slide">
+  <h2>Mini Challenge</h2>
+  <div class="card">
+    <h3>Buat Program Perkenalan</h3>
+    <p>Program harus menampilkan:</p>
+    <ul>
+      <li>Nama</li>
+      <li>Kelas</li>
+      <li>Hobi</li>
+      <li>Game favorit</li>
+      <li>Alasan ingin belajar Python</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Debugging Cepat</h2>
+  <div class="grid">
+    <div class="card"><h3>Error Umum</h3><p>Lupa tanda kutip, salah tulis perintah, atau file belum disimpan.</p></div>
+    <div class="card"><h3>Cara Memperbaiki</h3><p>Baca pesan error, cek baris kode, perbaiki, lalu jalankan ulang.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Refleksi</h2>
+  <ul>
+    <li>Apa hal baru yang saya pelajari hari ini?</li>
+    <li>Bagian mana yang masih membingungkan?</li>
+    <li>Error apa yang saya temui?</li>
+    <li>Bagaimana saya memperbaikinya?</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Tugas Rumah</h2>
+  <div class="card">
+    <p>Buat program <b>biodata_interaktif.py</b> yang menampilkan minimal 5 informasi diri menggunakan <b>print()</b>.</p>
+    <p class="warn">Bonus: Tambahkan komentar pada setiap bagian kode.</p>
+  </div>
+</section>
+
+<section class="slide center">
+  <div class="emoji">🐍</div>
+  <h1>Python Dimulai Hari Ini</h1>
+  <p>Dari satu baris kode, kita mulai membangun logika untuk membuat game.</p>
+</section>
+
+</div>
+
+<div class="nav">
+  <button onclick="prevSlide()">←</button>
+  <button onclick="nextSlide()">→</button>
+  <button onclick="toggleFull()">⛶</button>
+</div>
+
+<div class="footer">
+  <span>Level 9 • Python & Game Development</span>
+  <span id="counter"></span>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let current=0;
+
+function show(i){
+  slides.forEach((slide, index) => {
+    slide.classList.toggle('active', index === i);
+  });
+
+  current = i;
+  document.getElementById('counter').textContent =
+    `${current + 1} / ${slides.length}`;
+}
+
+function nextSlide() {
+  const next = (current + 1) % slides.length;
+  show(next);
+}
+
+function prevSlide() {
+  const prev = (current - 1 + slides.length) % slides.length;
+  show(prev);
+}
+
+function toggleFull() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowRight' || event.key === ' ') nextSlide();
+  if (event.key === 'ArrowLeft') prevSlide();
+  if (event.key.toLowerCase() === 'f') toggleFull();
+});
+
+show(0);
+</script>
+</body>
+</html>

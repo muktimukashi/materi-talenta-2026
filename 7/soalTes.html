@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tes Kemampuan Logika</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    @page {
+      size: A4;
+      margin: 9mm;
+    }
+
+    body {
+      margin: 0;
+      background: #eef1f5;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+    }
+
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 12px auto;
+      padding: 9mm;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,.12);
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: .4px;
+    }
+
+    .subtitle {
+      margin: 2px 0 7px;
+      text-align: center;
+      font-size: 10px;
+    }
+
+    .identity {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 10px;
+    }
+
+    .identity div {
+      border-bottom: 1px solid #222;
+      padding: 2px 0 3px;
+    }
+
+    .instruction {
+      margin-bottom: 6px;
+      padding: 5px 7px;
+      border: 1px solid #aaa;
+      background: #f7f7f7;
+      font-size: 9px;
+      line-height: 1.25;
+    }
+
+    .columns {
+      column-count: 2;
+      column-gap: 11mm;
+      column-rule: 1px solid #bbb;
+    }
+
+    h2 {
+      margin: 2px 0 4px;
+      font-size: 11px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 2px;
+      break-after: avoid;
+    }
+
+    .question {
+      break-inside: avoid;
+      margin-bottom: 5px;
+      font-size: 9px;
+      line-height: 1.2;
+    }
+
+    .question p {
+      margin: 0 0 2px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px 8px;
+      padding-left: 10px;
+    }
+
+    .options div {
+      white-space: normal;
+    }
+
+    .essay {
+      break-inside: avoid;
+      margin-bottom: 5px;
+      font-size: 9px;
+      line-height: 1.2;
+    }
+
+    .lines {
+      margin-top: 3px;
+    }
+
+    .line {
+      height: 12px;
+      border-bottom: 1px dotted #777;
+    }
+
+    .footer {
+      margin-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8px;
+      color: #444;
+    }
+
+    .answer-key {
+      margin-top: 6px;
+      padding-top: 4px;
+      border-top: 1px dashed #777;
+      font-size: 8px;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .sheet {
+        width: auto;
+        min-height: auto;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      .sheet {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 16px;
+      }
+      .columns {
+        column-count: 1;
+        column-rule: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <h1>TES KEMAMPUAN LOGIKA</h1>
+    <div class="subtitle">Pilihan Ganda dan Esai — Berpikir Komputasional</div>
+
+    <section class="identity">
+      <div>Nama:</div>
+      <div>Kelas:</div>
+      <div>Tanggal:</div>
+    </section>
+
+    <div class="instruction">
+      <strong>Petunjuk:</strong> Pilih satu jawaban yang paling tepat pada bagian A. Jawablah bagian B secara singkat, jelas, dan logis.
+    </div>
+
+    <div class="columns">
+      <section>
+        <h2>A. Pilihan Ganda</h2>
+
+        <div class="question">
+          <p><strong>1.</strong> Semua programmer suka memecahkan masalah. Budi adalah programmer. Maka...</p>
+          <div class="options">
+            <div>A. Budi tidak suka memecahkan masalah</div>
+            <div>B. Budi suka memecahkan masalah</div>
+            <div>C. Belum tentu Budi menyukainya</div>
+            <div>D. Tidak dapat disimpulkan</div>
+          </div>
+        </div>
+
+        <div class="question">
+          <p><strong>2.</strong> Pola berikut adalah 3, 6, 12, 24, ... Angka selanjutnya ialah...</p>
+          <div class="options">
+            <div>A. 36</div><div>B. 42</div>
+            <div>C. 48</div><div>D. 50</div>
+          </div>
+        </div>
+
+        <div class="question">
+          <p><strong>3.</strong> Robot maju 4 langkah, mundur 2 langkah, lalu maju 3 langkah. Posisi akhirnya...</p>
+          <div class="options">
+            <div>A. 3 langkah</div><div>B. 4 langkah</div>
+            <div>C. 5 langkah</div><div>D. 6 langkah</div>
+          </div>
+        </div>
+
+        <div class="question">
+          <p><strong>4.</strong> Lampu menyala hanya jika saklar A dan B sama-sama ON. Jika A ON dan B OFF, lampu...</p>
+          <div class="options">
+            <div>A. Menyala</div><div>B. Mati</div>
+            <div>C. Berkedip</div><div>D. Tidak dapat ditentukan</div>
+          </div>
+        </div>
+
+        <div class="question">
+          <p><strong>5.</strong> Urutan yang benar dari nilai terkecil adalah...</p>
+          <div class="options">
+            <div>A. 0,8 – 3/4 – 50%</div>
+            <div>B. 50% – 3/4 – 0,8</div>
+            <div>C. 3/4 – 50% – 0,8</div>
+            <div>D. 50% – 0,8 – 3/4</div>
+          </div>
+        </div>
+
+        <div class="question">
+          <p><strong>6.</strong> Semua kucing adalah mamalia. Semua mamalia bernapas. Maka...</p>
+          <div class="options">
+            <div>A. Semua yang bernapas adalah kucing</div>
+            <div>B. Semua kucing bernapas</div>
+            <div>C. Semua mamalia adalah kucing</div>
+            <div>D. Tidak ada jawaban benar</div>
+          </div>
+        </div>
+
+        <div class="question">
+          <p><strong>7.</strong> Sebuah proses diulang 8 kali dan tiap pengulangan menghasilkan 2 bintang. Jumlah bintang...</p>
+          <div class="options">
+            <div>A. 8</div><div>B. 10</div>
+            <div>C. 16</div><div>D. 18</div>
+          </div>
+        </div>
+
+        <div class="question">
+          <p><strong>8.</strong> Manakah yang tidak termasuk kelompok yang sama?</p>
+          <div class="options">
+            <div>A. Persegi</div><div>B. Segitiga</div>
+            <div>C. Lingkaran</div><div>D. Meja</div>
+          </div>
+        </div>
+
+        <div class="question">
+          <p><strong>9.</strong> Jika hari ini Rabu, maka 9 hari lagi adalah...</p>
+          <div class="options">
+            <div>A. Kamis</div><div>B. Jumat</div>
+            <div>C. Sabtu</div><div>D. Minggu</div>
+          </div>
+        </div>
+
+        <div class="question">
+          <p><strong>10.</strong> Daftar angka: 15, 30, 45, 60, 75. Angka pada posisi ke-4 adalah...</p>
+          <div class="options">
+            <div>A. 45</div><div>B. 60</div>
+            <div>C. 75</div><div>D. 30</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>B. Esai</h2>
+
+        <div class="essay">
+          <strong>1.</strong> Tuliskan langkah-langkah logis untuk membuat secangkir teh manis hingga siap diminum.
+          <div class="lines">
+            <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+          </div>
+        </div>
+
+        <div class="essay">
+          <strong>2.</strong> Urutkan nilai 75, 90, 65, 80, dan 85 dari terbesar ke terkecil. Jelaskan cara berpikir yang digunakan.
+          <div class="lines">
+            <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+          </div>
+        </div>
+
+        <div class="essay">
+          <strong>3.</strong> Sebuah robot harus bergerak dari titik A ke titik B dan menghindari satu rintangan. Jelaskan urutan langkahnya.
+          <div class="lines">
+            <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+          </div>
+        </div>
+
+        <!-- <div class="answer-key">
+          <strong>Kunci Guru:</strong> 1-B, 2-C, 3-C, 4-B, 5-B, 6-B, 7-C, 8-D, 9-B, 10-B.
+          <br><em>Hapus bagian ini sebelum dibagikan kepada siswa.</em>
+        </div> -->
+      </section>
+    </div>
+
+    <!-- <div class="footer">
+      <span>Skor PG: 10 × 6 = 60</span>
+      <span>Skor Esai: 3 soal = 40</span>
+      <span>Total: 100</span>
+    </div>
+  </main>
+</body>
+</html>

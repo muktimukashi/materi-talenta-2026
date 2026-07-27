@@ -1,0 +1,6 @@
+print("=== BIODATA SISWA ===")
+print("Nama: Budi")
+print("Kelas: 9")
+print("Hobi: Bermain game")
+print("Cita-cita: Game Developer")
+print("Game favorit: Minecraft")
